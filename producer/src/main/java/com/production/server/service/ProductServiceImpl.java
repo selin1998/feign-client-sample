@@ -2,11 +2,12 @@ package com.production.server.service;
 
 import com.production.server.exception.ProductNotFoundException;
 import com.production.server.model.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class ProductServiceImpl implements ProductService {
 
    static  List <Product> products=new ArrayList<>();

@@ -1,18 +1,19 @@
-package com.client;
+package com.client.client;
 
+import com.client.model.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "products")
-public interface Client {
+@FeignClient(name = "consumerClient", url = "http://localhost:9000")
+public interface ConsumerClient {
 
     @GetMapping("/")
-    List<Product> getProducts();
+    List<Product> findAll();
 
     @GetMapping("/{id}")
-    Product get(@PathVariable("id") int id);
+    Product find(@PathVariable("id") int id);
 
     @PostMapping("/save")
     Product save(@RequestBody Product Product);

@@ -13,27 +13,27 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("all")
-    public List<Product> getAll(){
+    @GetMapping("/all")
+    public List<Product> findAll(){
         return productService.findAll();
     }
 
-    @GetMapping("get")
-    public Product get(int id){
+    @GetMapping("/get")
+    public Product find(int id){
         return productService.find(id);
     }
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public Product save(@RequestBody Product Product){
         return productService.save(Product);
     }
 
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public void delete(int id){
         productService.delete(id);
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     public void update(int searchId, @RequestBody Product Product){
         productService.update(searchId, Product);
     }

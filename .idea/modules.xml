@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/crud-service/demo.iml" filepath="$PROJECT_DIR$/crud-service/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumer/client.iml" filepath="$PROJECT_DIR$/consumer/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/producer/demo.iml" filepath="$PROJECT_DIR$/producer/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/feign-client-sample.iml" filepath="$PROJECT_DIR$/.idea/feign-client-sample.iml" />
     </modules>
   </component>
