@@ -13,13 +13,13 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<Product> findAll(){
         return productService.findAll();
     }
 
-    @GetMapping("/get")
-    public Product find(int id){
+    @GetMapping("/{id}")
+    public Product find(@PathVariable("id") int id){
         return productService.find(id);
     }
 
@@ -28,14 +28,14 @@ public class ProductController {
         return productService.save(Product);
     }
 
-    @PostMapping("/delete")
-    public void delete(int id){
+    @PostMapping("/delete/{id}")
+    public void delete(@PathVariable("id") int id){
         productService.delete(id);
     }
 
-    @PostMapping("/update")
-    public void update(int searchId, @RequestBody Product Product){
-        productService.update(searchId, Product);
+    @PostMapping("/update/{id}")
+    public void update(int id, @RequestBody Product Product){
+        productService.update(id, Product);
     }
 
 }

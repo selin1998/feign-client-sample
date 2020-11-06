@@ -1,12 +1,13 @@
-package com.client;
+package com.production;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FeignApp {
+public class ConsumerApp {
+
 
     public static void main(String[] args) {
-        SpringApplication.run(FeignApp.class, args);
+        SpringApplication.run(ConsumerApp.class, args);
     }
 }

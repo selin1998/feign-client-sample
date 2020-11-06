@@ -4,9 +4,7 @@ import com.client.model.Product;
 import com.client.service.ConsumerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,28 +15,38 @@ public class ConsumerController {
 
     private final ConsumerService consumerService;
 
-    @GetMapping("all")
+    @GetMapping("/")
     public ResponseEntity<List<Product>> findAll() {
         return ResponseEntity.ok(consumerService.findAll());
     }
 
-    @GetMapping("get")
-    public ResponseEntity<Product> find(int id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> find(@PathVariable("id") int id) {
         return ResponseEntity.ok(consumerService.find(id));
     }
 
-    @PostMapping("save")
-    public ResponseEntity<Product> save(Product product) {
+    @PostMapping("/save/{id}")
+    public ResponseEntity<Product> save( @RequestBody Product product) {
         return ResponseEntity.ok(consumerService.save(product));
     }
 
-    @PostMapping("delete")
-    public ResponseEntity<String> delete(int id) {
+    @PostMapping("update/{id}")
+    public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Product product) {
+        try {
+            consumerService.update(id,product);
+            return ResponseEntity.ok("success");
+        } catch (Exception ex) {
+            return ResponseEntity.ok("error");
+        }
+    }
+
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") int id) {
         try {
              consumerService.delete(id);
             return ResponseEntity.ok("success");
         } catch (Exception ex) {
-            return ResponseEntity.ok("");
+            return ResponseEntity.ok("error");
         }
     }
 }
