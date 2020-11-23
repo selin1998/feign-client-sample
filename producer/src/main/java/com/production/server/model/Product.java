@@ -1,10 +1,11 @@
 package com.production.server.model;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
@@ -16,11 +17,15 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @javax.persistence.Id
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
     private String name;
 
     private Double price;
+
+
 }

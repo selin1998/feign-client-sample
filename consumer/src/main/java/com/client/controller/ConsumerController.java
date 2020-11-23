@@ -30,7 +30,7 @@ public class ConsumerController {
         return ResponseEntity.ok(consumerService.save(product));
     }
 
-    @PostMapping("update/{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Product product) {
         try {
             consumerService.update(id,product);
@@ -40,7 +40,7 @@ public class ConsumerController {
         }
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int id) {
         try {
              consumerService.delete(id);
